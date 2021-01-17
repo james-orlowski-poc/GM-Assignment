@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B214D5C25B49B9600244DDB /* APIUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B214D5B25B49B9600244DDB /* APIUtility.swift */; };
 		1B214D6125B49CE400244DDB /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B214D6025B49CE400244DDB /* APIModel.swift */; };
+		1B214D6D25B4BB5E00244DDB /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B214D6C25B4BB5E00244DDB /* UIColor+Ext.swift */; };
 		1B5D5E0E25B4906E00812FA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D5E0D25B4906E00812FA5 /* AppDelegate.swift */; };
 		1B5D5E1025B4906E00812FA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D5E0F25B4906E00812FA5 /* SceneDelegate.swift */; };
 		1B5D5E1225B4906E00812FA5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D5E1125B4906E00812FA5 /* HomeViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		1B214D5B25B49B9600244DDB /* APIUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtility.swift; sourceTree = "<group>"; };
 		1B214D6025B49CE400244DDB /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		1B214D6C25B4BB5E00244DDB /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		1B5D5E0A25B4906E00812FA5 /* GM-Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GM-Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B5D5E0D25B4906E00812FA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B5D5E0F25B4906E00812FA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		1B214D6B25B4BB5300244DDB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1B214D6C25B4BB5E00244DDB /* UIColor+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1B5D5E0125B4906D00812FA5 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 		1B5D5E0C25B4906E00812FA5 /* GM-Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				1B214D6B25B4BB5300244DDB /* Extensions */,
 				1B214D5A25B49B6700244DDB /* API */,
 				1B5D5E5025B4991300812FA5 /* Home */,
 				1B5D5E0D25B4906E00812FA5 /* AppDelegate.swift */,
@@ -299,6 +310,7 @@
 				1B214D5C25B49B9600244DDB /* APIUtility.swift in Sources */,
 				1B5D5E1225B4906E00812FA5 /* HomeViewController.swift in Sources */,
 				1B5D5E0E25B4906E00812FA5 /* AppDelegate.swift in Sources */,
+				1B214D6D25B4BB5E00244DDB /* UIColor+Ext.swift in Sources */,
 				1B5D5E1025B4906E00812FA5 /* SceneDelegate.swift in Sources */,
 				1B5D5E4C25B4958200812FA5 /* HistoryTableViewCell.swift in Sources */,
 			);

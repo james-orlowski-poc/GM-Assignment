@@ -100,7 +100,8 @@ class HistoryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath)
 
         let commitHistoryData = commitHistoryDataList[indexPath.row]
-        (cell as? HistoryTableViewCell)?.configure(commitHistoryData: commitHistoryData)
+        let isLastIndexPath = indexPath.row == commitHistoryDataList.count - 1
+        (cell as? HistoryTableViewCell)?.configure(commitHistoryData: commitHistoryData, isLastIndexPath: isLastIndexPath)
 
         return cell
     }
