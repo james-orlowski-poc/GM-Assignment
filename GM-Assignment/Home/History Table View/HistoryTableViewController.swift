@@ -11,7 +11,11 @@ class HistoryTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    static let segueIdentifier = "HistoryTableViewController"
+    
     fileprivate var commitHistoryDataList = [CommitHistoryData]()
+    
+    weak var homeViewControllerDelegate: HomeViewControllerDelegate?
     
     // MARK: - View Life Cycle
 
@@ -29,6 +33,12 @@ class HistoryTableViewController: UITableViewController {
     // MARK: - UI Refresh
     
     fileprivate func refreshTableViewData() {
+        if commitHistoryDataList.isEmpty {
+            self.view.alpha = 0
+        }
+
+        homeViewControllerDelegate?.showActivityIndicator()
+        
         APIUtility.getCommitHistoryData { [weak self] (commitHistoryDataList: [CommitHistoryData]?, errorData: ErrorData?) in
             DispatchQueue.main.async {
                 guard let self = self else { return }
@@ -36,6 +46,12 @@ class HistoryTableViewController: UITableViewController {
                 if let validCommitHistoryDataList = commitHistoryDataList {
                     self.commitHistoryDataList = validCommitHistoryDataList
                     self.tableView.reloadData()
+                }
+                
+                self.homeViewControllerDelegate?.hideActivityIndicator()
+                
+                UIView.animate(withDuration: 0.2, delay: 0.2) {
+                    self.tableView.alpha = 1
                 }
                 
                 if let validErrorData = errorData {
