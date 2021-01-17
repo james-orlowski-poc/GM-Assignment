@@ -20,10 +20,14 @@ class APIUtility {
                     return
                 }
                 
-                let jsonString = String(data: validData, encoding: .utf8) ?? ""
-                print(jsonString)
+                let commitHistoryDataList = decodeJSONData(jsonData: validData)
+                print(commitHistoryDataList)
             }.resume()
         }
+    }
+    
+    static func decodeJSONData(jsonData: Data) -> [CommitHistoryData]? {
+        return try? JSONDecoder().decode([CommitHistoryData].self, from: jsonData)
     }
     
 }
