@@ -42,4 +42,11 @@ class GM_AssignmentTests: XCTestCase {
         
         self.waitForExpectations(timeout: 20)
     }
+    
+    func testJSONDecoding() {
+        let dataTest1 = "Random string characters that isn't in JSON format!!".data(using: .utf8)!
+        XCTAssertNil(APIUtility.decodeJSONData(jsonData: dataTest1))
+        
+        XCTAssertNil(APIUtility.decodeJSONData(jsonData: Data()))
+    }
 }
