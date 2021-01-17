@@ -23,7 +23,7 @@ class HistoryTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupTableView()
-        refreshTableViewData()
+        refreshTableViewData(showActivityIndicator: true)
     }
     
     fileprivate func setupTableView() {
@@ -33,12 +33,14 @@ class HistoryTableViewController: UITableViewController {
     
     // MARK: - UI Refresh
     
-    fileprivate func refreshTableViewData() {
+    fileprivate func refreshTableViewData(showActivityIndicator: Bool) {
         if commitHistoryDataList.isEmpty {
             self.view.alpha = 0
         }
 
-        homeViewControllerDelegate?.showActivityIndicator()
+        if showActivityIndicator {
+            homeViewControllerDelegate?.showActivityIndicator()
+        }
         
         APIUtility.getCommitHistoryData { [weak self] (commitHistoryDataList: [CommitHistoryData]?, errorData: ErrorData?) in
             DispatchQueue.main.async {
@@ -75,7 +77,7 @@ class HistoryTableViewController: UITableViewController {
 
         alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] action in
             guard let self = self else { return }
-            self.refreshTableViewData()
+            self.refreshTableViewData(showActivityIndicator: true)
         }))
 
         self.present(alert, animated: true)
@@ -84,7 +86,8 @@ class HistoryTableViewController: UITableViewController {
     // MARK: - UIRefreshControl Actions
     
     @objc func refreshControlActivated() {
-        refreshTableViewData()
+        // Don't show the activity indicator on the parent view controller, use the one that is built in the refresh control action
+        refreshTableViewData(showActivityIndicator: false)
     }
 
     // MARK: - UITableViewDelegate + UITableViewDataSource
