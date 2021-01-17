@@ -28,6 +28,7 @@ class HistoryTableViewController: UITableViewController {
     
     fileprivate func setupTableView() {
         self.tableView.tableFooterView = UIView()
+        refreshControl?.addTarget(self, action: #selector(refreshControlActivated), for: .valueChanged)
     }
     
     // MARK: - UI Refresh
@@ -49,6 +50,12 @@ class HistoryTableViewController: UITableViewController {
                 }
                 
                 self.homeViewControllerDelegate?.hideActivityIndicator()
+                
+                if let validRefreshControl = self.refreshControl {
+                    if validRefreshControl.isRefreshing {
+                        validRefreshControl.endRefreshing()
+                    }
+                }
                 
                 UIView.animate(withDuration: 0.2, delay: 0.2) {
                     self.tableView.alpha = 1
@@ -72,6 +79,12 @@ class HistoryTableViewController: UITableViewController {
         }))
 
         self.present(alert, animated: true)
+    }
+    
+    // MARK: - UIRefreshControl Actions
+    
+    @objc func refreshControlActivated() {
+        refreshTableViewData()
     }
 
     // MARK: - UITableViewDelegate + UITableViewDataSource
