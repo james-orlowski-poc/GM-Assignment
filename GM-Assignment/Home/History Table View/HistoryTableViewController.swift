@@ -17,6 +17,8 @@ class HistoryTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupTableView()
+        
+        APIUtility.fetchHistoryDataFromAPI()
     }
     
     fileprivate func setupTableView() {
