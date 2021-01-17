@@ -18,7 +18,7 @@ class HistoryTableViewController: UITableViewController {
 
         setupTableView()
         
-        APIUtility.fetchHistoryDataFromAPI()
+        APIUtility.getCommitHistoryData()
     }
     
     fileprivate func setupTableView() {
