@@ -16,6 +16,11 @@ class HistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupTableView()
+    }
+    
+    fileprivate func setupTableView() {
+        self.tableView.tableFooterView = UIView()
     }
 
     // MARK: - UITableViewDelegate + UITableViewDataSource
@@ -24,7 +29,6 @@ class HistoryTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 5
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.identifier, for: indexPath)
