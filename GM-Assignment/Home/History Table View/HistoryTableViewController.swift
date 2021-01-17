@@ -67,7 +67,8 @@ class HistoryTableViewController: UITableViewController {
         let alert = UIAlertController(title: errorData.title, message: errorData.message, preferredStyle: .alert)
 
         alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] action in
-            print("Selected Retry")
+            guard let self = self else { return }
+            self.refreshTableViewData()
         }))
 
         self.present(alert, animated: true)
