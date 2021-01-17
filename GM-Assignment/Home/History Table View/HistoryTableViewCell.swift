@@ -20,5 +20,4 @@ class HistoryTableViewCell: UITableViewCell {
         messageLabel.text = messageString
         hashLabel.text = hashString
     }
-
 }

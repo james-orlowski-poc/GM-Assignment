@@ -103,15 +103,13 @@
 		1B5D5E0C25B4906E00812FA5 /* GM-Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				1B5D5E5025B4991300812FA5 /* Home */,
 				1B5D5E0D25B4906E00812FA5 /* AppDelegate.swift */,
 				1B5D5E0F25B4906E00812FA5 /* SceneDelegate.swift */,
-				1B5D5E1125B4906E00812FA5 /* ViewController.swift */,
 				1B5D5E1325B4906E00812FA5 /* Main.storyboard */,
 				1B5D5E1625B4906E00812FA5 /* Assets.xcassets */,
 				1B5D5E1825B4906E00812FA5 /* LaunchScreen.storyboard */,
 				1B5D5E1B25B4906E00812FA5 /* Info.plist */,
-				1B5D5E4625B494FD00812FA5 /* HistoryTableViewController.swift */,
-				1B5D5E4B25B4958200812FA5 /* HistoryTableViewCell.swift */,
 			);
 			path = "GM-Assignment";
 			sourceTree = "<group>";
@@ -132,6 +130,24 @@
 				1B5D5E3125B4906E00812FA5 /* Info.plist */,
 			);
 			path = "GM-AssignmentUITests";
+			sourceTree = "<group>";
+		};
+		1B5D5E5025B4991300812FA5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1B5D5E1125B4906E00812FA5 /* ViewController.swift */,
+				1B5D5E5125B4991D00812FA5 /* History Table View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1B5D5E5125B4991D00812FA5 /* History Table View */ = {
+			isa = PBXGroup;
+			children = (
+				1B5D5E4625B494FD00812FA5 /* HistoryTableViewController.swift */,
+				1B5D5E4B25B4958200812FA5 /* HistoryTableViewCell.swift */,
+			);
+			path = "History Table View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -8,18 +8,17 @@
 import UIKit
 
 class HistoryTableViewController: UITableViewController {
+    
+    // MARK: - Properties
+    
+    // MARK: - View Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    // MARK: - Table view data source
+    // MARK: - UITableViewDelegate + UITableViewDataSource
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -37,5 +36,4 @@ class HistoryTableViewController: UITableViewController {
 
         return cell
     }
-
 }
