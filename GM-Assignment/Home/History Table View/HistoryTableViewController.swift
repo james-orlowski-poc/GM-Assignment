@@ -37,8 +37,24 @@ class HistoryTableViewController: UITableViewController {
                     self.commitHistoryDataList = validCommitHistoryDataList
                     self.tableView.reloadData()
                 }
+                
+                if let validErrorData = errorData {
+                    self.showConnectionFailureAlert(errorData: validErrorData)
+                }
             }
         }
+    }
+    
+    // MARK: - Alert Errors
+    
+    fileprivate func showConnectionFailureAlert(errorData: ErrorData) {
+        let alert = UIAlertController(title: errorData.title, message: errorData.message, preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] action in
+            print("Selected Retry")
+        }))
+
+        self.present(alert, animated: true)
     }
 
     // MARK: - UITableViewDelegate + UITableViewDataSource
