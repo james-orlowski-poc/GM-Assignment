@@ -47,6 +47,37 @@ class GM_AssignmentTests: XCTestCase {
         let dataTest1 = "Random string characters that isn't in JSON format!!".data(using: .utf8)!
         XCTAssertNil(APIUtility.decodeJSONData(jsonData: dataTest1))
         
+        // Test model properties are being set
+        let dataTest2 = #"[ { "sha": "a hash value", "commit": { "author": { "name": "a name value" } , "message": "a commit message"} } ]"#.data(using: .utf8)!
+        let jsonData2 = APIUtility.decodeJSONData(jsonData: dataTest2)
+        XCTAssertNotNil(jsonData2)
+        XCTAssert(jsonData2!.count == 1)
+        XCTAssert(jsonData2![0].sha == "a hash value")
+        XCTAssert(jsonData2![0].commit.author.name == "a name value")
+        XCTAssert(jsonData2![0].commit.message == "a commit message")
+        
+        // Test with multiple commit entries
+        let dataTest3 = #"[ { "sha": "", "commit": { "author": { "name": "" } , "message": ""} }, { "sha": "", "commit": { "author": { "name": "" } , "message": ""} } ]"#.data(using: .utf8)!
+        let jsonData3 = APIUtility.decodeJSONData(jsonData: dataTest3)
+        XCTAssertNotNil(jsonData3)
+        XCTAssert(jsonData3!.count == 2)
+        
+        // Rename "sha" -> "sha1". Decoding should then fail
+        let dataTest4 = #"[ { "sha1": "a hash value", "commit": { "author": { "name": "a name value" } , "message": "a commit message"} } ]"#.data(using: .utf8)!
+        XCTAssertNil(APIUtility.decodeJSONData(jsonData: dataTest4))
+        
+        // Change message value to an int.
+        let dataTest5 = #"[ { "sha": "a hash value", "commit": { "author": { "name": "a name value" } , "message": 1} } ]"#.data(using: .utf8)!
+        XCTAssertNil(APIUtility.decodeJSONData(jsonData: dataTest5))
+        
+        // Remove the sha entry completely
+        let dataTest6 = #"[ { "commit": { "author": { "name": "a name value" } , "message": 1} } ]"#.data(using: .utf8)!
+        XCTAssertNil(APIUtility.decodeJSONData(jsonData: dataTest6))
+        
+        // Change author value to null
+        let dataTest7 = #"[ { "commit": { "author": { "name": null } , "message": 1} } ]"#.data(using: .utf8)!
+        XCTAssertNil(APIUtility.decodeJSONData(jsonData: dataTest7))
+        
         XCTAssertNil(APIUtility.decodeJSONData(jsonData: Data()))
     }
 }
