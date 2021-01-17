@@ -15,9 +15,9 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet var messageLabel: UILabel!
     @IBOutlet var hashLabel: UILabel!
 
-    func configure(authorString: String, messageString: String, hashString: String) {
-        authorLabel.text = authorString
-        messageLabel.text = messageString
-        hashLabel.text = hashString
+    func configure(commitHistoryData: CommitHistoryData) {
+        authorLabel.text = commitHistoryData.commit.author.name
+        messageLabel.text = commitHistoryData.commit.message
+        hashLabel.text = commitHistoryData.sha
     }
 }
