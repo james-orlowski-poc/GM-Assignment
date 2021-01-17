@@ -16,6 +16,7 @@
 		1B5D5E2525B4906E00812FA5 /* GM_AssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D5E2425B4906E00812FA5 /* GM_AssignmentTests.swift */; };
 		1B5D5E3025B4906E00812FA5 /* GM_AssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D5E2F25B4906E00812FA5 /* GM_AssignmentUITests.swift */; };
 		1B5D5E4725B494FD00812FA5 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D5E4625B494FD00812FA5 /* HistoryTableViewController.swift */; };
+		1B5D5E4C25B4958200812FA5 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5D5E4B25B4958200812FA5 /* HistoryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		1B5D5E2F25B4906E00812FA5 /* GM_AssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GM_AssignmentUITests.swift; sourceTree = "<group>"; };
 		1B5D5E3125B4906E00812FA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B5D5E4625B494FD00812FA5 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		1B5D5E4B25B4958200812FA5 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				1B5D5E1825B4906E00812FA5 /* LaunchScreen.storyboard */,
 				1B5D5E1B25B4906E00812FA5 /* Info.plist */,
 				1B5D5E4625B494FD00812FA5 /* HistoryTableViewController.swift */,
+				1B5D5E4B25B4958200812FA5 /* HistoryTableViewCell.swift */,
 			);
 			path = "GM-Assignment";
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				1B5D5E1225B4906E00812FA5 /* ViewController.swift in Sources */,
 				1B5D5E0E25B4906E00812FA5 /* AppDelegate.swift in Sources */,
 				1B5D5E1025B4906E00812FA5 /* SceneDelegate.swift in Sources */,
+				1B5D5E4C25B4958200812FA5 /* HistoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
