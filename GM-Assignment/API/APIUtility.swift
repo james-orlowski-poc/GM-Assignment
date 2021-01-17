@@ -10,12 +10,34 @@ import Foundation
 class APIUtility {
     
     static let urlString = "https://api.github.com/repos/james-orlowski-poc/GM-Assignment/commits"
-    
-    static func getCommitHistoryData() {
-        fetchHistoryDataFromAPI(urlString: urlString) { (data: Data?, statusCode: Int?) in            
+
+    /**
+     This function performs a GET request to the GitHub API, which then decodes that data to an object. That object will provide data for the table view.
+
+     - Parameter rootDataList: Relevant commit history data
+     - Parameter errorData: An error message (in the form of UIAlertController) to show the user if an error occurred during this process.
+    */
+    static func getCommitHistoryData(completion: @escaping (_ rootDataList: [CommitHistoryData]?, _ errorData: ErrorData?) -> Void) {
+        fetchHistoryDataFromAPI(urlString: urlString) { (data: Data?, statusCode: Int?) in
+            if statusCode != 200 {
+                let statusCodeString: String
+                if let validStatusCode = statusCode {
+                    statusCodeString = "Response status code \(validStatusCode)."
+                } else {
+                    statusCodeString = "Unknown response status code."
+                }
+                
+                let errorData = ErrorData(title: "Connection Failure", message:  "An error occurred while communicating with the GitHub API. \(statusCodeString)")
+                completion(nil, errorData)
+                return
+            }
+            
             if let validData = data, let commitHistoryDataList = self.decodeJSONData(jsonData: validData) {
-                // We were able to connect to the API + able to decode the message successfully!
-                print(commitHistoryDataList)
+                // Expected case. We were able to connect to the API + able to decode the message successfully!
+                completion(commitHistoryDataList, nil)
+            } else {
+                let errorData = ErrorData(title: "Data Failure", message:  "An error occurred while decoding the JSON string.")
+                completion(nil, errorData)
             }
         }
     }
@@ -37,5 +59,4 @@ class APIUtility {
     static func decodeJSONData(jsonData: Data) -> [CommitHistoryData]? {
         return try? JSONDecoder().decode([CommitHistoryData].self, from: jsonData)
     }
-    
 }

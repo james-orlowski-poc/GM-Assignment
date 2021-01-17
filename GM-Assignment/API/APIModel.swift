@@ -21,3 +21,8 @@ struct CommitHistoryData: Decodable {
     let commit: Commit
     let sha: String
 }
+
+struct ErrorData {
+    let title: String
+    let message: String
+}

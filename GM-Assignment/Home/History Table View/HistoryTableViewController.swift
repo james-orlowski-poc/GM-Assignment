@@ -18,7 +18,9 @@ class HistoryTableViewController: UITableViewController {
 
         setupTableView()
         
-        APIUtility.getCommitHistoryData()
+        APIUtility.getCommitHistoryData { [weak self] (commitHistoryDataList: [CommitHistoryData]?, errorData: ErrorData?) in
+            print(commitHistoryDataList)
+        }
     }
     
     fileprivate func setupTableView() {
