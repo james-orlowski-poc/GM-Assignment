@@ -27,7 +27,7 @@ class HistoryTableViewController: UITableViewController {
     }
     
     fileprivate func setupTableView() {
-        self.tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
         refreshControl?.addTarget(self, action: #selector(refreshControlActivated), for: .valueChanged)
     }
     

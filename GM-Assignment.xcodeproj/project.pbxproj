@@ -131,7 +131,6 @@
 				1B5D5E5025B4991300812FA5 /* Home */,
 				1B5D5E0D25B4906E00812FA5 /* AppDelegate.swift */,
 				1B5D5E0F25B4906E00812FA5 /* SceneDelegate.swift */,
-				1B5D5E1325B4906E00812FA5 /* Main.storyboard */,
 				1B5D5E1625B4906E00812FA5 /* Assets.xcassets */,
 				1B5D5E1825B4906E00812FA5 /* LaunchScreen.storyboard */,
 				1B5D5E1B25B4906E00812FA5 /* Info.plist */,
@@ -160,6 +159,7 @@
 		1B5D5E5025B4991300812FA5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				1B5D5E1325B4906E00812FA5 /* Main.storyboard */,
 				1B5D5E1125B4906E00812FA5 /* HomeViewController.swift */,
 				1B5D5E5125B4991D00812FA5 /* History Table View */,
 			);
